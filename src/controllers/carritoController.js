@@ -1,8 +1,8 @@
-import CarritoServices from "../Services/carritoService"
-import ProductServices from "../Services/productService"
+import CarritoServices from "../Services/carritoService.js"
+import ProductServices from "../Services/productService.js"
 
-import { carritoModel } from "../models/carritoModel"
-import { productModel } from "../models/productModel"
+import { carritoModel } from "../models/carritoModel.js"
+import { productModel } from "../models/productModel.js"
 
 
 const carritoServices= new CarritoServices(carritoModel)

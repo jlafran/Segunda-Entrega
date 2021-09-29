@@ -1,4 +1,4 @@
-import Services from "./all.services";
+import Services from "./all.services.js";
 
 class FavServices extends Services{
     constructor(model) {super(model)}

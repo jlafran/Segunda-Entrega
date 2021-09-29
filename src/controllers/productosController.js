@@ -1,4 +1,4 @@
-import productService from "../Services/productService"
+import productService from "../Services/productService.js"
 
 const getId=(req,res)=>{
     const {id}=req.params

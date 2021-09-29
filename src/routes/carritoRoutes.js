@@ -1,13 +1,13 @@
 import { Router } from 'express';
-import {carritoController} from '../controllers/index'
+import {carritoControllers} from '../controllers/index.js'
 
 const carritoRouter = Router();
 
-carritoRouter.get("/:id?", carritoController.getCarritos);
-carritoRouter.get("/products/:id/", carritoController.getProductsInCarrito);
-carritoRouter.post("/", carritoController.newCarrito);
-carritoRouter.post("/:id", carritoController.addProductToCarrito);
-carritoRouter.delete("/:id",carritoController.deleteCarritoById)
-carritoRouter.delete("/products/:id/:productId",carritoController.deleteProductoFromCarrito)
+carritoRouter.get("/:id?", carritoControllers.getCarritos);
+carritoRouter.get("/products/:id/", carritoControllers.getProductsInCarrito);
+carritoRouter.post("/", carritoControllers.newCarrito);
+carritoRouter.post("/:id", carritoControllers.addProductToCarrito);
+carritoRouter.delete("/:id",carritoControllers.deleteCarritoById)
+carritoRouter.delete("/products/:id/:productId",carritoControllers.deleteProductoFromCarrito)
 
 export default carritoRouter

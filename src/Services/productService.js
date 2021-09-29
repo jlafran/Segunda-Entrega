@@ -1,4 +1,4 @@
-import Services from './all.services'
+import Services from './all.services.js'
 
 class ProductServices extends Services{
     constructor(model) {super(model)}

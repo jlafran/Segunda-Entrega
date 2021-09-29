@@ -1,4 +1,4 @@
-import Services from "./all.services";
+import Services from "./all.services.js";
 
 class CarritoServices extends Services{
     constructor(model) {super(model)}
