@@ -1,41 +1,54 @@
-import productService from "../Services/productService.js"
+import ProductServices from "../Services/productService.js"
+import { productModel } from "../models/productModel.js"
 
-const getId=(req,res)=>{
-    const {id}=req.params
-    if (id==''){
-        const productos= productService.getAll()
-        res.send(productos)}
-    else{
-        const producto= productService.getId(id)
-        res.send(producto)}
-}
+const productServices= new ProductServices(productModel)
 
-const getAll=(req,res)=>{
-    const productos= productService.getAll()
-    res.send(productos)
-}
+export const newProduct=async(req,res)=>{
+    try{
+        const productId=await productServices.createProduct()
+        res.status(200).send(`Producto creado con Id: ${productId}`)
+    }catch(error){console.log(error);}
+};
 
-const post=(req,res)=>{
-    const producto= req.body
-    const productos= productService.post(producto)
-    res.send(productos)
-}
-const replaceId=(req,res)=>{
-    const {id}=req.params
-    const producto= req.body
-    const product= productService.replaceId(producto,id)
-    res.send(product)
-}
-const deleteId=(req,res)=>{
-    const {id}=req.params
-    const product= productService.deleteId(id)
-    res.send(product)
-}
+export const getProducts=async(req,res)=>{
+        const {productId}=req.params
+        if(productId){
+            const product=await productServices.getProductById(productId)
+            if (product){
+                res.status(200).send(product)
+            } else{
+                res.send('Producto no existe')
+            }
+        } else{
+            try{
+                const product=await productServices.getProducts()
+                res.status(200).send(product)
+            }catch(error){console.log(error);}
+        }
+};
 
-export default {
-    getId:getId,
-    getAll:getAll,
-    post:post,
-    replaceId:replaceId,
-    deleteId:deleteId
+export const deleteProductById=async(req,res)=>{
+    const {productId}=req.params
+    try{
+        const borrado=await carritoServices.deleteProductById(productId)
+        if(borrado){
+            res.status(200).send({borrado})
+        } else{
+            res.send('El producto que intenta borrar no existe')
+        }
+    }catch(error){console.log(error);}
+};
+
+export const updateProductById=async(req,res)=>{
+    const {productId}=req.params
+    const product=req.body
+    console.log(product,productId);
+    try{
+        const updated=await productServices.updateProductById(productId,product)
+        if (updated){
+            res.status(200).send(`Producto updateado: ${updated}`)
+        } else{
+            res.send('Producto Inexistente')
+        }
+    }catch(error){console.log(error);}
 }

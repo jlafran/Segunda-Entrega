@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 
 const PORT= process.env.PORT
-const mongoUri=process.env.MONGO_URI_LOCAL
+const mongoUri=process.env.MONGODB_URI_LOCAL
 
 // Express Server
 app.listen(PORT,()=>{
