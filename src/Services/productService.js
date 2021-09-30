@@ -1,4 +1,5 @@
 import Services from './all.services.js'
+import { productModel } from '../models/productModel.js';
 
 class ProductServices extends Services{
     constructor(model) {super(model)}

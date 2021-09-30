@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "1421cf71-c4ed-412a-8232-b299a166e312",
+		"name": "Ecommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GetProducts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/productos/6155c51278840eddf23a1de8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"productos",
+								"6155c51278840eddf23a1de8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Aire Acondicionado\",\n    \"description\": \"description\",\n    \"price\": 100,\n    \"stock\": 10,\n    \"thumbnail\": \"www.aire.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:27017/api/productos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"productos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateProductById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Aire Acondicionado\",\n    \"description\": \"description\",\n    \"price\": 100,\n    \"stock\": 10,\n    \"thumbnail\": \"www.aire.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:27017/api/productos/6155c53a78840eddf23a1dea",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"productos",
+								"6155c53a78840eddf23a1dea"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduct",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/productos/6155cfc437cf4a8095e0040d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"productos",
+								"6155cfc437cf4a8095e0040d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carrito",
+			"item": [
+				{
+					"name": "NewCarrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/carritos/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"carritos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AddProduct",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/carritos/products/6155d65ccd0c04bf6eafad6a/6155c51278840eddf23a1de8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"carritos",
+								"products",
+								"6155d65ccd0c04bf6eafad6a",
+								"6155c51278840eddf23a1de8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetCarritos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "getProductsInCarrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCarrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/carritos/6155e28369ae284ddf855f50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"carritos",
+								"6155e28369ae284ddf855f50"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProductInCarrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:27017/api/carritos/products/6155d65ccd0c04bf6eafad6a/6155c51278840eddf23a1de8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "27017",
+							"path": [
+								"api",
+								"carritos",
+								"products",
+								"6155d65ccd0c04bf6eafad6a",
+								"6155c51278840eddf23a1de8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

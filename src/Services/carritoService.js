@@ -24,6 +24,7 @@ class CarritoServices extends Services{
             const cart=await this.model.findById(cartId)
             cart.products.push(newProduct)
             cart.save()
+            return cart
         }catch(error){console.log(error);}
     };
     getProducts=async (id)=>{

@@ -9,8 +9,9 @@ const carritoServices= new CarritoServices(carritoModel)
 const productServices= new ProductServices(productModel)
 
 export const newCarrito=async(req,res)=>{
+    const carrito=req.body
     try{
-        const carritoId=await carritoServices.createCarrito()
+        const carritoId=await carritoServices.createCarrito(carrito)
         res.status(200).send(`Carrito creado con Id: ${carritoId}`)
     }catch(error){console.log(error);}
 };
@@ -62,7 +63,7 @@ export const deleteProductoFromCarrito=async(req,res)=>{
     const {carritoId,productId}=req.params
     const deletedId= await carritoServices.deleteProduct(carritoId,productId)
     if(deletedId){
-        res.status(200).send(`Producto borrado con Id: ${addedProduct}`)
+        res.status(200).send(`Producto borrado con Id: ${deletedId}`)
     } else{
         res.send('Carrito Inexistente')
     }

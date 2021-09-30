@@ -5,7 +5,8 @@ const productServices= new ProductServices(productModel)
 
 export const newProduct=async(req,res)=>{
     try{
-        const productId=await productServices.createProduct()
+        const product=req.body
+        const productId=await productServices.createProduct(product)
         res.status(200).send(`Producto creado con Id: ${productId}`)
     }catch(error){console.log(error);}
 };
@@ -30,7 +31,7 @@ export const getProducts=async(req,res)=>{
 export const deleteProductById=async(req,res)=>{
     const {productId}=req.params
     try{
-        const borrado=await carritoServices.deleteProductById(productId)
+        const borrado=await productServices.deleteProductById(productId)
         if(borrado){
             res.status(200).send({borrado})
         } else{
